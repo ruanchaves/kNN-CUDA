@@ -289,13 +289,14 @@ bool test(const float * ref,
  * 2. Compute the ground truth.
  * 3. Test the different implementation of the k-NN algorithm.
  */
-int main(void) {
+int main(int argc, char* argv[]) {
 
+    // 16384 4096 128 16
     // Parameters
-    const int ref_nb   = 16384;
-    const int query_nb = 4096;
-    const int dim      = 128;
-    const int k        = 16;
+    const int ref_nb   = std::stoi(argv[0]);
+    const int query_nb = std::stoi(argv[1]);
+    const int dim      = std::stoi(argv[2]);
+    const int k        = std::stoi(argv[3]);
 
     // Display
     printf("PARAMETERS\n");
