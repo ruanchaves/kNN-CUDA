@@ -299,15 +299,15 @@ int main(int argc, char* argv[]) {
     const int k        = std::atoi(argv[4]);
 
     // Display
-    printf("PARAMETERS\n");
-    printf("- Number reference points : %d\n",   ref_nb);
-    printf("- Number query points     : %d\n",   query_nb);
-    printf("- Dimension of points     : %d\n",   dim);
-    printf("- Number of neighbors     : %d\n\n", k);
+    // printf("PARAMETERS\n");
+    // printf("- Number reference points : %d\n",   ref_nb);
+    // printf("- Number query points     : %d\n",   query_nb);
+    // printf("- Dimension of points     : %d\n",   dim);
+    // printf("- Number of neighbors     : %d\n\n", k);
 
     // Sanity check
     if (ref_nb<k) {
-        printf("Error: k value is larger that the number of reference points\n");
+        // printf("Error: k value is larger that the number of reference points\n");
         return EXIT_FAILURE;
     }
 
@@ -319,7 +319,7 @@ int main(int argc, char* argv[]) {
 
     // Allocation checks
     if (!ref || !query || !knn_dist || !knn_index) {
-        printf("Error: Memory allocation error\n"); 
+        // printf("Error: Memory allocation error\n"); 
         free(ref);
 	    free(query);
 	    free(knn_dist);
@@ -331,7 +331,7 @@ int main(int argc, char* argv[]) {
     initialize_data(ref, ref_nb, query, query_nb, dim);
 
     // Compute the ground truth k-NN distances and indexes for each query point
-    printf("Ground truth computation in progress...\n\n");
+    // printf("Ground truth computation in progress...\n\n");
     if (!knn_c(ref, ref_nb, query, query_nb, dim, k, knn_dist, knn_index)) {
         free(ref);
 	    free(query);
@@ -341,8 +341,8 @@ int main(int argc, char* argv[]) {
     }
 
     // Test all k-NN functions
-    printf("TESTS\n");
-    test(ref, ref_nb, query, query_nb, dim, k, knn_dist, knn_index, &knn_c,            "knn_c",              2);
+    // printf("TESTS\n");
+    // test(ref, ref_nb, query, query_nb, dim, k, knn_dist, knn_index, &knn_c,            "knn_c",              2);
     test(ref, ref_nb, query, query_nb, dim, k, knn_dist, knn_index, &knn_cuda_global,  "knn_cuda_global",  100); 
     test(ref, ref_nb, query, query_nb, dim, k, knn_dist, knn_index, &knn_cuda_texture, "knn_cuda_texture", 100); 
     test(ref, ref_nb, query, query_nb, dim, k, knn_dist, knn_index, &knn_cublas,       "knn_cublas",       100); 
