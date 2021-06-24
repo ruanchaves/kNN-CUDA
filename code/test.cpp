@@ -1,5 +1,3 @@
-#define _GLIBCXX_USE_C99 1
-
 #include <algorithm>
 #include <math.h>
 #include <stdio.h>
@@ -295,10 +293,10 @@ int main(int argc, char* argv[]) {
 
     // 16384 4096 128 16
     // Parameters
-    const int ref_nb   = std::stoi(argv[0]);
-    const int query_nb = std::stoi(argv[1]);
-    const int dim      = std::stoi(argv[2]);
-    const int k        = std::stoi(argv[3]);
+    const int ref_nb   = std::atoi(argv[0]);
+    const int query_nb = std::atoi(argv[1]);
+    const int dim      = std::atoi(argv[2]);
+    const int k        = std::atoi(argv[3]);
 
     // Display
     printf("PARAMETERS\n");
