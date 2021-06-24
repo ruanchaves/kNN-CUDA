@@ -293,10 +293,10 @@ int main(int argc, char* argv[]) {
 
     // 16384 4096 128 16
     // Parameters
-    const int ref_nb   = std::atoi(argv[0]);
-    const int query_nb = std::atoi(argv[1]);
-    const int dim      = std::atoi(argv[2]);
-    const int k        = std::atoi(argv[3]);
+    const int ref_nb   = std::atoi(argv[1]);
+    const int query_nb = std::atoi(argv[2]);
+    const int dim      = std::atoi(argv[3]);
+    const int k        = std::atoi(argv[4]);
 
     // Display
     printf("PARAMETERS\n");
