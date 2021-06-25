@@ -114,7 +114,7 @@ __global__ void compute_distance_texture(cudaTextureObject_t ref,
     if ( xIndex<query_width && yIndex<ref_width) {
         float ssd = 0.f;
         for (int i=0; i<height; i++) {
-            float tmp  = tex2D<float>(ref, (float)yIndex, (float)i) - query[i * query_pitch + xIndex];
+            float tmp  = tex2Dlod<float>(ref, (float)yIndex, (float)i) - query[i * query_pitch + xIndex];
             ssd += tmp * tmp;
         }
         dist[yIndex * query_pitch + xIndex] = ssd;
